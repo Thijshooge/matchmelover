@@ -6,6 +6,7 @@ class MatchMeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.tertiary,
       appBar: AppBar(
         toolbarHeight: 45,
         scrolledUnderElevation: 0,
