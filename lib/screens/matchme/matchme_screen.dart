@@ -37,11 +37,7 @@ class MatchMeScreen extends StatelessWidget {
             },
             padding: EdgeInsets.symmetric(horizontal: 4),
             constraints: BoxConstraints(),
-            icon: Icon(
-              Icons.notifications_outlined,
-              color: Color.fromARGB(255, 236, 28, 36),
-              size: 24,
-            ),
+            icon: Icon(Icons.notifications_outlined, size: 24),
           ),
 
           IconButton(
