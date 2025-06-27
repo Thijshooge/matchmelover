@@ -11,6 +11,7 @@ class MatchMeSettingScreen extends StatelessWidget {
         toolbarHeight: 45,
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.primary,
+        scrolledUnderElevation: 0,
       ),
       body: const Center(
         child: Text('MatchMe Settings Screen', style: TextStyle(fontSize: 18)),
