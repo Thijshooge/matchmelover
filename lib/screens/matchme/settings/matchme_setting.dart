@@ -8,6 +8,7 @@ class MatchMeSettingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
+        toolbarHeight: 45,
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.primary,
       ),
