@@ -25,7 +25,7 @@ class MatchMeScreen extends StatelessWidget {
             const SizedBox(width: 12),
             // Tekst naast logo
             Text(
-              'MatchMe',
+              'MATCHME',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ],
