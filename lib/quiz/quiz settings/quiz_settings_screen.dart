@@ -12,6 +12,7 @@ class QuizSettingsScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.primary,
         scrolledUnderElevation: 0,
+        automaticallyImplyLeading: false,
         title: const Text('Quiz Settings'),
       ),
       body: Padding(
