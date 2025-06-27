@@ -11,6 +11,8 @@ import 'package:matchme_lover/screens/auth/signup_screen.dart';
 import 'package:matchme_lover/screens/matchme/%20push%20notifications/push_notifications_screen.dart';
 import 'package:matchme_lover/screens/matchme/settings/matchme_setting.dart';
 
+import 'quiz/quiz settings/quiz_settings_screen.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -44,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/matchme/push_notification': (context) =>
             const PushNotificationsScreen(),
         '/matchme/chat_settings': (context) => const ChatSettingsScreen(),
+        '/matchme/quiz_settings': (context) => const QuizSettingsScreen(),
       },
     );
   }
