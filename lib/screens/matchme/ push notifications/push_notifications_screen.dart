@@ -8,6 +8,7 @@ class PushNotificationsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.tertiary,
       appBar: AppBar(
+        toolbarHeight: 45,
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.primary,
         scrolledUnderElevation: 0,
