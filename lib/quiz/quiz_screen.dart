@@ -33,7 +33,7 @@ class QuizScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/settings');
+              Navigator.pushNamed(context, '/matchme/quiz_settings');
             },
             padding: EdgeInsets.symmetric(horizontal: 4),
             constraints: BoxConstraints(),
