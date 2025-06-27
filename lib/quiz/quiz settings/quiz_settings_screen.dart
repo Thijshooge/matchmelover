@@ -6,6 +6,7 @@ class QuizSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.tertiary,
       appBar: AppBar(
         toolbarHeight: 45,
         backgroundColor: Theme.of(context).colorScheme.secondary,
