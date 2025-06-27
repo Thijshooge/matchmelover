@@ -31,7 +31,6 @@ class MatchMeScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          // 3 iconen rechts - dichter bij elkaar
           IconButton(
             onPressed: () {
               // TODO: Implementeer notifications
