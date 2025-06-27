@@ -11,7 +11,7 @@ class ChatSettingsScreen extends StatelessWidget {
         toolbarHeight: 45,
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.primary,
-        elevation: 0,
+        scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         title: const Text('Chat Settings'),
         actions: [
