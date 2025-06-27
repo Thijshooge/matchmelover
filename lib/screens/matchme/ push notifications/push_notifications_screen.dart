@@ -10,6 +10,7 @@ class PushNotificationsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.primary,
+        scrolledUnderElevation: 0,
         title: const Text('Push Notifications'),
       ),
       body: Center(
