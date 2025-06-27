@@ -8,6 +8,7 @@ import 'package:matchme_lover/screens/main/splash_screen.dart';
 import 'package:matchme_lover/screens/main/welcome_screen.dart';
 import 'package:matchme_lover/screens/auth/signin_screen.dart';
 import 'package:matchme_lover/screens/auth/signup_screen.dart';
+import 'package:matchme_lover/screens/matchme/%20push%20notifications/push_notifications_screen.dart';
 import 'package:matchme_lover/screens/matchme/settings/matchme_setting.dart';
 
 class MyApp extends StatelessWidget {
@@ -40,7 +41,8 @@ class MyApp extends StatelessWidget {
         '/matchme/profile_edit': (context) => const ProfileEditScreen(),
         '/matchme/profile_view': (context) => const ProfileViewScreen(),
         '/matchme/profile_settings': (context) => const ProfileSettingsScreen(),
-
+        '/matchme/push_notification': (context) =>
+            const PushNotificationsScreen(),
         '/matchme/chat_settings': (context) => const ChatSettingsScreen(),
       },
     );
