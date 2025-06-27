@@ -456,7 +456,7 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
       ),
       child: Text(
         text,
-        style: const TextStyle(color: Colors.red, fontSize: 16, height: 1.5),
+        style: const TextStyle(color: Colors.white, fontSize: 16, height: 1.5),
       ),
     );
   }
