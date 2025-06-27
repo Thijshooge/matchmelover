@@ -13,6 +13,17 @@ class MatchMeSettingScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.primary,
         scrolledUnderElevation: 0,
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text(
+              'Gereed',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
       ),
       body: const Center(
         child: Text('MatchMe Settings Screen', style: TextStyle(fontSize: 18)),
