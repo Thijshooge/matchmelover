@@ -6,6 +6,7 @@ class PushNotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.tertiary,
       appBar: AppBar(title: const Text('Push Notifications')),
       body: Center(
         child: Column(
