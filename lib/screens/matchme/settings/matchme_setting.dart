@@ -9,7 +9,7 @@ class MatchMeSettingScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Settings'),
         backgroundColor: Colors.black,
-        foregroundColor: Color.fromARGB(255, 236, 28, 36),
+        foregroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: const Center(
         child: Text('MatchMe Settings Screen', style: TextStyle(fontSize: 18)),
