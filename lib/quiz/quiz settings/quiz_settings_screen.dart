@@ -6,7 +6,13 @@ class QuizSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Quiz Settings')),
+      appBar: AppBar(
+        toolbarHeight: 45,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        foregroundColor: Theme.of(context).colorScheme.primary,
+        scrolledUnderElevation: 0,
+        title: const Text('Quiz Settings'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
