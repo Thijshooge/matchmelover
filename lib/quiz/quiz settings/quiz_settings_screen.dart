@@ -14,6 +14,12 @@ class QuizSettingsScreen extends StatelessWidget {
         scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         title: const Text('Quiz Settings'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.close, size: 30),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
