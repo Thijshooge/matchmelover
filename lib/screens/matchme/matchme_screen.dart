@@ -33,7 +33,7 @@ class MatchMeScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // TODO: Implementeer notifications
+              Navigator.pushNamed(context, '/matchme/push_notifications');
             },
             padding: EdgeInsets.symmetric(horizontal: 4),
             constraints: BoxConstraints(),
