@@ -13,6 +13,7 @@ class MatchMeSettingScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.secondary,
         foregroundColor: Theme.of(context).colorScheme.primary,
         scrolledUnderElevation: 0,
+        automaticallyImplyLeading: false,
         actions: [
           TextButton(
             onPressed: () {
