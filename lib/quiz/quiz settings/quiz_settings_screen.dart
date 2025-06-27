@@ -15,9 +15,14 @@ class QuizSettingsScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: const Text('Quiz Settings'),
         actions: [
-          IconButton(
-            icon: Icon(Icons.close, size: 30),
-            onPressed: () => Navigator.pop(context),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text(
+              'Gereed',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
