@@ -32,7 +32,9 @@ class QuizScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/settings');
+            },
             padding: EdgeInsets.symmetric(horizontal: 4),
             constraints: BoxConstraints(),
             icon: Icon(Icons.settings_outlined, size: 24),
