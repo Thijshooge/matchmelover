@@ -1,0 +1,33 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "matchmeloversapp",
+          "appId": "1:1020462080586:android:8ed9366522594c99a7bcb3",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "matchmeloversapp",
+          "appId": "1:1020462080586:ios:37a865f83d0b17c5a7bcb3",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "matchmeloversapp",
+          "configurations": {
+            "android": "1:1020462080586:android:8ed9366522594c99a7bcb3",
+            "ios": "1:1020462080586:ios:37a865f83d0b17c5a7bcb3"
+          }
+        }
+      }
+    }
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

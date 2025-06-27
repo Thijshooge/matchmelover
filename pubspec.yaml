@@ -1,0 +1,67 @@
+name: matchme_lover
+description: "A new Flutter project."
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #firebase 
+  firebase_auth: ^5.0.0
+  cloud_firestore: ^5.0.0
+  firebase_core: ^3.14.0
+  firebase_storage: ^12.3.5
+  
+  #flutter
+  cupertino_icons: ^1.0.8
+  
+  intl: ^0.20.2
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.0
+  equatable: ^2.0.7
+  
+  # Image picker voor foto's
+  image_picker: ^1.0.8
+  
+  # Alternative file picker als backup
+  file_picker: ^8.0.7
+  
+  # Dotted border voor foto vakjes
+  dotted_border: ^2.1.0
+  
+  # Logging framework
+  logging: ^1.2.0
+  
+  # HTTP requests voor Google Places API
+  http: ^1.1.0
+  
+  # Biometric authentication
+  local_auth: ^2.1.8
+  
+  # Local storage voor instellingen
+  shared_preferences: ^2.2.3
+  
+
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  
+  flutter_lints: ^5.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+    - assets/

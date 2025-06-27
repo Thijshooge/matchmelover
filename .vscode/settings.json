@@ -1,0 +1,10 @@
+{
+    "zencoder.enableRepoIndexing": true,
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "dart.projectSearchDepth": 5,
+    "dart.flutterSdkPath": "",
+    "java.configuration.workspaceCacheLimit": 90,
+    "java.import.gradle.enabled": true,
+    "java.import.gradle.wrapper.enabled": true,
+    "java.compile.nullAnalysis.mode": "automatic"
+}
