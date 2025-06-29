@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class LikesScreen extends StatefulWidget {
   const LikesScreen({super.key});
@@ -115,12 +116,44 @@ class _LikesScreenState extends State<LikesScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Like ze terug om een match te maken!',
+                  'Upgrade naar Premium om te zien wie jou leuk vindt!',
                   style: TextStyle(
                     color: Theme.of(
                       context,
                     ).colorScheme.surface.withValues(alpha: 0.7),
                     fontSize: 16,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                // Premium upgrade button
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _showPremiumUpgrade(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.star, size: 20),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Upgrade naar Premium',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -174,24 +207,36 @@ class _LikesScreenState extends State<LikesScreen> {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              // Achtergrond foto
-              Image.network(
-                profile['image'],
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.surface.withValues(alpha: 0.1),
-                    child: Icon(
-                      Icons.person,
-                      size: 50,
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.surface.withValues(alpha: 0.5),
+              // Achtergrond foto met blur effect
+              Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.network(
+                    profile['image'],
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.surface.withValues(alpha: 0.1),
+                        child: Icon(
+                          Icons.person,
+                          size: 50,
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.surface.withValues(alpha: 0.5),
+                        ),
+                      );
+                    },
+                  ),
+                  // Blur overlay
+                  BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                    child: Container(
+                      color: Colors.black.withValues(alpha: 0.1),
                     ),
-                  );
-                },
+                  ),
+                ],
               ),
 
               // Gradient overlay
@@ -241,6 +286,37 @@ class _LikesScreenState extends State<LikesScreen> {
                       ),
                     ),
                   ],
+                ),
+              ),
+
+              // Premium unlock indicator (center)
+              Positioned.fill(
+                child: Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.8),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.lock, color: Colors.white, size: 16),
+                        const SizedBox(width: 6),
+                        Text(
+                          'Upgrade om te zien',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
 
@@ -474,6 +550,214 @@ class _LikesScreenState extends State<LikesScreen> {
         content: Text('🎉 Match met ${profile['name']}!'),
         backgroundColor: Theme.of(context).colorScheme.primary,
         duration: const Duration(seconds: 3),
+      ),
+    );
+  }
+
+  void _showPremiumUpgrade(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: MediaQuery.of(context).size.height * 0.7,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.tertiary,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            children: [
+              // Handle
+              Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.surface.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              // Premium icon
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(Icons.star, color: Colors.white, size: 32),
+              ),
+
+              const SizedBox(height: 24),
+
+              // Title
+              Text(
+                'Upgrade naar Premium',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.surface,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+
+              const SizedBox(height: 16),
+
+              // Subtitle
+              Text(
+                'Ontdek wie jou leuk vindt en krijg meer matches!',
+                style: TextStyle(
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.surface.withValues(alpha: 0.7),
+                  fontSize: 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
+
+              const SizedBox(height: 32),
+
+              // Features list
+              Expanded(
+                child: Column(
+                  children: [
+                    _buildFeatureItem(
+                      context,
+                      Icons.visibility,
+                      'Zie wie jou leuk vindt',
+                    ),
+                    _buildFeatureItem(
+                      context,
+                      Icons.favorite,
+                      'Onbeperkt liken',
+                    ),
+                    _buildFeatureItem(
+                      context,
+                      Icons.flash_on,
+                      'Boost je profiel',
+                    ),
+                    _buildFeatureItem(
+                      context,
+                      Icons.undo,
+                      'Ongedaan maken van swipes',
+                    ),
+                    _buildFeatureItem(
+                      context,
+                      Icons.location_on,
+                      'Verander je locatie',
+                    ),
+                  ],
+                ),
+              ),
+
+              // Price and upgrade button
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.surface.withValues(alpha: 0.05),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      '€9,99/maand',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.surface,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Stop op elk moment',
+                      style: TextStyle(
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.surface.withValues(alpha: 0.6),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              // Upgrade button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    // Hier zou je de premium upgrade logica implementeren
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Premium upgrade functionaliteit komt binnenkort!',
+                        ),
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    'Start Premium',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFeatureItem(BuildContext context, IconData icon, String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Theme.of(
+                context,
+              ).colorScheme.primary.withValues(alpha: 0.1),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              icon,
+              color: Theme.of(context).colorScheme.primary,
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.surface,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
