@@ -439,77 +439,37 @@ class _LikesScreenState extends State<LikesScreen> {
                         ),
                       ),
 
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 20),
 
-                      // Action buttons
-                      Row(
-                        children: [
-                          // Pass button
-                          Expanded(
-                            child: Container(
-                              height: 56,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Theme.of(
-                                    context,
-                                  ).colorScheme.surface.withValues(alpha: 0.3),
-                                ),
-                                borderRadius: BorderRadius.circular(28),
-                              ),
-                              child: TextButton.icon(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                  _removeProfile(profile);
-                                },
-                                icon: Icon(
-                                  Icons.close,
+                      // Info message
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.primary.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.favorite,
+                              color: Theme.of(context).colorScheme.primary,
+                              size: 20,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                'Deze persoon vindt jou leuk! Upgrade naar Premium om te zien wie.',
+                                style: TextStyle(
                                   color: Theme.of(context).colorScheme.surface,
-                                ),
-                                label: Text(
-                                  'Pass',
-                                  style: TextStyle(
-                                    color: Theme.of(
-                                      context,
-                                    ).colorScheme.surface,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
-                          ),
-
-                          const SizedBox(width: 16),
-
-                          // Like button
-                          Expanded(
-                            child: Container(
-                              height: 56,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.primary,
-                                borderRadius: BorderRadius.circular(28),
-                              ),
-                              child: TextButton.icon(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                  _likeProfile(profile);
-                                },
-                                icon: const Icon(
-                                  Icons.favorite,
-                                  color: Colors.white,
-                                ),
-                                label: const Text(
-                                  'Like',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
 
                       const SizedBox(height: 20),
@@ -520,36 +480,6 @@ class _LikesScreenState extends State<LikesScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  void _removeProfile(Map<String, dynamic> profile) {
-    setState(() {
-      _likedProfiles.remove(profile);
-    });
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('${profile['name']} gepasseerd'),
-        backgroundColor: Theme.of(
-          context,
-        ).colorScheme.surface.withValues(alpha: 0.9),
-        duration: const Duration(seconds: 2),
-      ),
-    );
-  }
-
-  void _likeProfile(Map<String, dynamic> profile) {
-    setState(() {
-      _likedProfiles.remove(profile);
-    });
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('🎉 Match met ${profile['name']}!'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        duration: const Duration(seconds: 3),
       ),
     );
   }
